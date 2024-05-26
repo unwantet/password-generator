@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Favicon  -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- Title -->
+    <title>Generate your awesome password</title>
+
+    <!-- Styles  -->
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
+  <body>
+    <section class="section-password-generator">
+      <div class="section-password-generator__container container">
+        <h1 class="section-password-generator__heading heading heading-m">
+          Password generator
+        </h1>
+
+        <!-- PASSSWORD-ZONE  -->
+        <section class="password-zone">
+          <h2 class="visually-hidden">Copy your awesome password</h2>
+          <div class="password-zone__box">
+            <span
+              class="password-zone__text"
+              id="password"
+              data-ready-to-copy="false"
+              >P4$5W0rD!</span
+            >
+            <span class="password-zone__copy">
+              <span class="password-zone__copied" id="copied">Copied</span>
+              <button class="password-zone__copy-button" id="copyButton">
+                <svg
+                  width="21"
+                  height="24"
+                  viewBox="0 0 21 24"
+                  fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M17.909 0.659016L20.341 3.09098C20.763 3.51294 21 4.08523 21 4.68197V17.25C21 18.4926 19.9926 19.5 18.75 19.5H15V21.75C15 22.9926 13.9926 24 12.75 24H2.25C1.00734 24 0 22.9926 0 21.75V6.75C0 5.50734 1.00734 4.5 2.25 4.5H6V2.25C6 1.00734 7.00734 0 8.25 0H16.3181C16.9147 3.12036e-06 17.4871 0.237058 17.909 0.659016ZM2.53126 21.75H12.4687C12.5434 21.75 12.6149 21.7204 12.6677 21.6677C12.7204 21.6149 12.75 21.5434 12.75 21.4687V19.5H8.25C7.00734 19.5 6 18.4926 6 17.25V6.75H2.53126C2.45665 6.75 2.38512 6.77963 2.33238 6.83238C2.27963 6.88512 2.25 6.95665 2.25 7.03126V21.4687C2.25 21.5434 2.27963 21.6149 2.33238 21.6677C2.38512 21.7204 2.45665 21.75 2.53126 21.75ZM18.4687 17.25H8.53126C8.45665 17.25 8.38512 17.2204 8.33238 17.1677C8.27963 17.1149 8.25 17.0434 8.25 16.9687V2.53126C8.25 2.45665 8.27963 2.38512 8.33238 2.33238C8.38512 2.27963 8.45665 2.25 8.53126 2.25H13.5V6.375C13.5 6.99632 14.0036 7.5 14.625 7.5H18.75V16.9687C18.75 17.0434 18.7204 17.1149 18.6677 17.1677C18.6149 17.2204 18.5434 17.25 18.4687 17.25ZM15.75 5.25H18.75V4.7985C18.75 4.76156 18.7427 4.72499 18.7286 4.69086C18.7145 4.65673 18.6937 4.62572 18.6677 4.59961L16.4004 2.33236C16.3476 2.27963 16.2761 2.25 16.2014 2.25H15.75V5.25Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </button>
+            </span>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- PASSWORD-SETTINGS -->
+    <section class="section-password-settings">
+      <form id="settingsForm">
+        <div class="section-password-settings__container container">
+          <div class="section-password-settings__inner">
+            <div class="section-password-settings__length">
+              <h3 class="section-password-settings__length-label heading">
+                Character length
+              </h3>
+              <span
+                class="section-password-settings__length-text heading-l"
+                id="passwordLength"
+                >0</span
+              >
+            </div>
+            <input
+              id="passwordLengthRange"
+              type="range"
+              max="10"
+              min="0"
+              value="0"
+              name="length"
+              class="section-password-settings__range"
+            />
+
+            <!-- EXTRA-LETTERS-SETTINGS -->
+            <div class="extra-settings">
+              <ul class="extra-settings__list">
+                <li class="extra-settings__item item">
+                  <input
+                    class="item__checkbox visually-hidden"
+                    type="checkbox"
+                    id="uppercase"
+                    name="uppercases"
+                  />
+                  <span class="item__state js-option"></span>
+                  <label class="item__label" for="uppercase"
+                    >Include Uppercase <b>Letters</b></label
+                  >
+                </li>
+                <li class="extra-settings__item item">
+                  <input
+                    class="item__checkbox visually-hidden"
+                    type="checkbox"
+                    id="lowercase"
+                    name="lowercases"
+                  />
+                  <span class="item__state js-option"></span>
+                  <label class="item__label" for="lowercase"
+                    >Include Lowercase <b>Letters</b></label
+                  >
+                </li>
+                <li class="extra-settings__item item">
+                  <input
+                    class="item__checkbox visually-hidden"
+                    type="checkbox"
+                    id="numbers"
+                    name="numbers"
+                    defaultValue="false"
+                  />
+                  <span class="item__state js-option"></span>
+                  <label class="item__label" for="numbers"
+                    >Include Numbers</label
+                  >
+                </li>
+                <li class="extra-settings__item item">
+                  <input
+                    class="item__checkbox visually-hidden"
+                    type="checkbox"
+                    id="symbols"
+                    name="symbols"
+                    defaultValue="false"
+                  />
+                  <span class="item__state js-option"></span>
+                  <label class="item__label" for="symbols"
+                    >Include Symbols</label
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <!-- STRENGTH -->
+            <div class="strength">
+              <div class="strength__inner">
+                <h3 class="strength__title heading">Strength</h3>
+                <div class="strength__state">
+                  <span
+                    class="strength__state-text heading-m"
+                    id="strengthText"
+                  ></span>
+                  <img
+                    class="strength__state-img"
+                    src="img/empty.svg"
+                    alt="Strength state"
+                    width="64"
+                    height="28"
+                    id="strengthImg"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- GENERATE-BUTTON -->
+            <button class="generate-button" type="submit">
+              <span class="generate-button__inner">
+                <span class="generate-button__text">Generate</span>
+                <svg
+                  width="12"
+                  height="12"
+                  viewBox="0 0 12 12"
+                  fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M5.10553 12L11.1055 6.00002L5.10553 0L3.84051 1.26501L7.681 5.10547L6.10352e-05 5.10547V6.8946L7.681 6.8946L3.84051 10.735L5.10553 12Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
+        </div>
+      </form>
+    </section>
+    <!-- Loader  -->
+    <div class="loader" id="loader">
+      <span class="loader__inner"></span>
+    </div>
+    <script type="module" src="ts/index.js"></script>
+  </body>
+</html>
